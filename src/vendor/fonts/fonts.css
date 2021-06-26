@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu-Regular.woff') format('woff');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu-Light.woff') format('woff');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu-Medium.woff') format('woff');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('../fonts/Rubik_400.woff') format('woff');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('../fonts/Rubik_300.woff') format('woff');
+    font-weight: 300;
+}
