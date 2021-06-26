@@ -20,8 +20,6 @@ function App() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [modalSearchIsOpen, setIsModalSearchIsOpen] = useState(false);
 
-  console.log(scroll)
-
 
   const handleScroll = () => {
     setScroll(window.scrollY);
