@@ -10,6 +10,8 @@ class Carousel extends React.Component {
       active: this.props.active,
     };
     this.rightClick = this.moveRight.bind(this);
+    this.cliclInterval = 0; 
+    this.startInterval = 0;
   }
 
 
@@ -42,9 +44,17 @@ class Carousel extends React.Component {
 
 
   componentDidMount() {
-      setInterval(this.rightClick, 2000);
+  //  this.startInterval = setTimeout(this.rightClick, 0)
+  // this.cliclInterval = setInterval(this.rightClick, 2000);
+   
  
   }
+
+  componentWillUnmount() {
+   // clearInterval(this.cliclInterval); 
+   // clearTimeout(this.startInterval);
+  }
+
 
   render() {
     return (

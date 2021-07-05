@@ -1,0 +1,81 @@
+.swiper-container {
+  position: absolute;
+  overflow-x: hidden !important;
+  list-style: none;
+  padding: 0;
+  z-index: 2;
+}
+
+.swiper-container-projects {
+  position: absolute;
+  overflow-x: hidden !important;
+  list-style: none;
+  padding: 0;
+  z-index: 2;
+  min-width: 474px !important;
+}
+
+.swiper-team {
+  margin-top: 20px;
+  width: 100%;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 1420px) {
+  .swiper-team {
+    margin-top: -20px;
+    left: 0;
+    right: 0;
+  }
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+}
+
+.swiper-mod {
+  width: 100%;
+}
+
+.swiper-overflow {
+  background-color: inherit;
+  overflow: hidden;
+}
+
+.team-container__image {
+  border-radius: 4px;
+  width: 108px;
+  height: 108px;
+}
+
+.team-buttons {
+  margin-top: -110px;
+}
+
+@media screen and (max-width: 1420px) {
+  .team-buttons {
+    position: absolute;
+    top: 300px;
+    width: 100%;
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 1420px) {
+  .team-buttons__right {
+    position: absolute;
+    left: 36px;
+  }
+}
+
+@media screen and (max-width: 1420px) {
+  .team-buttons__left {
+    position: absolute;
+    left: 210px;
+  }
+}

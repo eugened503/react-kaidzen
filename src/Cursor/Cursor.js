@@ -7,10 +7,6 @@ const Cursor = () => {
   const [yTrailing, setyTrailing] = useState("80%");
   const [btn, setbtn] = useState("cursor-block");
 
-  const gh = () => {
-    setbtn("cursor-hidden");
-  };
-
   const handleCursorHidden = () => {
     setbtn("cursor-hidden");
   };
@@ -18,7 +14,6 @@ const Cursor = () => {
   const handleCursorBlock = () => {
     setbtn("cursor-block");
   };
-
 
   const handleMouseMove = (e) => {
     const { clientX, clientY } = e;
@@ -39,7 +34,10 @@ const Cursor = () => {
           }}
         />
       </div>
-      <Video handleCursorHidden={handleCursorHidden} handleCursorBlock={handleCursorBlock} />
+      <Video
+        handleCursorHidden={handleCursorHidden}
+        handleCursorBlock={handleCursorBlock}
+      />
     </div>
   );
 };

@@ -1,0 +1,202 @@
+.all-projects {
+  flex-direction: column;
+  margin-top: 98px;
+  padding-left: 161px;
+  padding-right: 161px;
+  padding-bottom: 115px;
+  display: none;
+}
+
+.all-projects_visible {
+  display: flex;
+  flex-direction: column;
+  padding-left: 161px;
+  padding-right: 161px;
+  padding-bottom: 115px;
+  padding-top: 160px;
+  animation: opacityin 2s;
+}
+
+.all-projects__slider {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 9.4%;
+  margin-left: 50px;
+}
+
+@media screen and (max-width: 1099px) {
+  .all-projects__slider {
+    width: 90%;
+    margin: 24px auto 0 auto;
+  }
+}
+
+.all-title {
+  margin: 10.6% 0;
+}
+
+@media screen and (max-width: 816px) {
+  .all-info {
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .all-projects_visible {
+    max-width: 1920px;
+  }
+}
+
+@media screen and (max-width: 1099px) {
+  .all-projects_visible {
+    padding-left: 10px;
+    padding-right: 10px;
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .all-projects_mobile {
+    margin-top: 1px !important;
+    margin-left: 13px !important;
+  }
+}
+
+@keyframes opacityin {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.all-projects__container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 816px) {
+  .all-projects__container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 1099px) {
+  .all-projects__container {
+    margin-top: -60px;
+  }
+}
+
+.all-projects__button {
+  margin-top: 40px;
+  height: 66px;
+  width: 385px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  outline: 0;
+  box-shadow: none;
+  align-items: center;
+  border: none;
+  background: #008ae8;
+  border-radius: 45px;
+  outline: none;
+  padding: 20px 48px 20px 127px;
+  transition: all 0.2s ease-out;
+}
+
+@media screen and (max-width: 1562px) {
+  .all-projects__button {
+    padding: 20px 48px 20px 48px;
+  }
+}
+
+@media screen and (max-width: 862px) {
+  .all-projects__button {
+    padding: 20px;
+    margin-bottom: 9.4%;
+  }
+}
+
+@media screen and (max-width: 773px) {
+  .all-projects__button {
+    padding: 20px 48px 20px 127px;
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 544px) {
+  .all-projects__button {
+    width: 66.8%;
+    padding: 20px;
+    margin-top: 0;
+    margin-bottom: 9.4%;
+  }
+}
+
+@media screen and (max-width: 1099px) {
+  .all-projects__button_none {
+    display: none;
+  }
+}
+
+.all-projects__button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.all-projects__item {
+  margin: 0;
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.all-projects__block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 70%;
+}
+
+@media screen and (max-width: 1099px) {
+  .all-projects__block {
+    width: 100%;
+  }
+}
+
+.all-projects__image {
+  object-fit: contain;
+  transition: all 0.2s ease-out;
+}
+
+.all-projects__image:hover {
+  transform: scale(0.7);
+  cursor: pointer;
+}
+
+.all-projects__load {
+  margin: 0;
+  align-self: center;
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  text-transform: uppercase;
+  color: #5d5d63;
+}
+
+@media screen and (max-width: 1099px) {
+  .all-projects__load {
+    margin-top: 40px;
+  }
+}

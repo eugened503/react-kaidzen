@@ -17,8 +17,8 @@ const Video = ({ handleCursorHidden, handleCursorBlock }) => {
 
   return (
     <div
-       onMouseEnter={handleCursorBlock}
-       onMouseLeave={handleCursorHidden}
+      onMouseEnter={handleCursorBlock}
+      onMouseLeave={handleCursorHidden}
       className="container"
       onClick={toggleButon}
     >

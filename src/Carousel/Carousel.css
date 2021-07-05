@@ -1,0 +1,103 @@
+.carousel {
+  position: relative;
+  min-height: 758px;
+  width: 26.3%;
+  top: 210px;
+  left: 260px;
+  overflow: hidden;
+}
+
+
+@media screen and (max-width: 1637px) {
+  .carousel {
+    top: 150px;
+  left:0;
+  min-height:  600px;
+  width: 35vw;
+  }
+}
+@media screen and (min-width: 1370px) and (max-width: 1636px) {
+  .carousel {
+    top: 165px;
+  left:0;
+  width: 30vw;
+  }
+} 
+
+
+
+@media screen and (max-width: 1369px) {
+  .carousel {
+    top: 55px;
+  left:0;
+  min-height:  600px;
+  width: 45vw;
+  }
+}
+
+
+
+.item {
+  display: flex;
+  align-items: center;
+  filter: grayscale(100%);
+  color: #5D5D63;
+  position: absolute;
+  transition: height 2s linear, width 2s linear, top 2s linear,
+    margin-left 2s linear;
+}
+
+.level-3 {
+  height: 50px;
+  width: 60px;
+  top: 785px;
+  margin-left: 160px;
+}
+
+.level-2 {
+  height: 64px;
+  width: 177px;
+  top: 733px;
+  margin-left: 104px;
+}
+
+.level-1 {
+  height: 91px;
+  width: 251px;
+  top: 71%;
+  margin-left: 70px;
+}
+
+.level0 {
+  height: 111px;
+  width: 304px;
+  top: 44%;
+  margin-left: 42px;
+}
+
+.level1 {
+  height: 91px;
+  width: 251px;
+  margin-left: 67px;
+  top: 19%;
+}
+
+.level2 {
+  height: 64px;
+  width: 177px;
+  margin-left: 102px;
+  top: -32px;
+}
+
+.level3 {
+  height: 50px;
+  width: 60px;
+  margin-left: 160px;
+  top: -90px;
+}
+
+.item__image {
+  width: 100%;
+  object-fit: cover;
+}
+

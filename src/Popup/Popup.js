@@ -4,7 +4,6 @@ import checkCircle from "../images/checkCircle.png";
 import magnifyingGlass from "../images/magnifyingGlass.png";
 import "./Popup.css";
 
-
 const customStyles = {
   content: {
     top: "50%",
@@ -15,32 +14,19 @@ const customStyles = {
     transform: "translate(-50%, -50%)",
     backgroundColor: "inherit",
     overflow: "none",
-      border: "none",
-    //width: '100%,'
+    border: "none",
   },
 };
 
-//Modal.setAppElement('#yourAppElement');
-
-function Popup({modalIsOpen, closeMyModal}) {
- 
-
-  
- // function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    //  subtitle.style.color = 'red';
-  //}
-
+function Popup({ modalIsOpen, closeMyModal }) {
   function closeModal() {
-    closeMyModal()
+    closeMyModal();
   }
 
   return (
     <div>
-     
       <Modal
         isOpen={modalIsOpen}
-        //onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal"

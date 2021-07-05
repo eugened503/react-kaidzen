@@ -1,0 +1,272 @@
+.offer {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  padding-left: 161px;
+  padding-right: 161px;
+}
+
+.offer-typing {
+  position: absolute;
+  top: 470px;
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 1574px) {
+  .offer-typing {
+    top: 520px;
+  }
+}
+
+@media screen and (min-width: 541px) and (max-width: 1367px) {
+  .offer-typing {
+    top: 230px;
+  }
+}
+
+@media screen and (min-width: 413px) and (max-width: 540px) {
+  .offer-typing {
+    top: 265px;
+  }
+}
+
+@media screen and (min-width: 380px) and (max-width: 412px) {
+  .offer-typing {
+    top: 125px;
+  }
+}
+
+@media screen and (max-width: 379px) {
+  .offer-typing {
+    top: 155px;
+  }
+}
+
+@media screen and (max-width: 1497px) {
+  .offer {
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 1181px) {
+  .offer {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .offer {
+    flex-direction: column;
+    min-height: 720px;
+  }
+}
+
+@media screen and (max-width: 585px) {
+  .offer {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media screen and (max-width: 412px) {
+  .offer {
+    padding-left: 24px;
+    padding-right: 24px;
+    justify-content: space-evenly;
+  }
+}
+
+.offer-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 334px;
+  margin-bottom: 13.7%;
+}
+
+@media screen and (max-width: 1368px) {
+  .offer-container {
+    padding-top: 135px;
+  }
+}
+
+@media screen and (max-width: 412px) {
+  .offer-container {
+    padding-top: 0px;
+  }
+}
+
+.offer-title {
+  max-width: 800px;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 140%;
+  color: white;
+}
+
+@media screen and (max-width: 1368px) {
+  .offer-title {
+    font-size: 24px;
+  }
+}
+
+.offer-subtitle {
+  color: #008ae8;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 140%;
+}
+
+.offer-subtitle_padding {
+  padding-left: 17px;
+}
+
+.cursor {
+  margin: 40px 0 0 0;
+  font-size: 22px;
+
+  animation: 1s blink step-end infinite;
+}
+
+.cursor-none {
+  display: none;
+}
+
+@media screen and (max-width: 1368px) {
+  .cursor {
+    margin: 25px 0 0 0;
+  }
+}
+
+@keyframes blink {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: #008ae8;
+  }
+}
+@-moz-keyframes blink {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: #008ae8;
+  }
+}
+@-webkit-keyframes blink {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: #008ae8;
+  }
+}
+@-ms-keyframes blink {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: #008ae8;
+  }
+}
+@-o-keyframes blink {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: #008ae8;
+  }
+}
+
+@media screen and (max-width: 1368px) {
+  .offer-subtitle {
+    font-size: 24px;
+  }
+}
+
+.offer-message {
+  color: white;
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 140%;
+  margin: 80px 0 42px 0;
+}
+
+@media screen and (max-width: 1368px) {
+  .offer-message {
+    font-size: 16px;
+    margin-top: 85px;
+  }
+}
+
+.offer-button {
+  max-width: 501px;
+  min-height: 72px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: #008ae8;
+  border-radius: 0px 45px 45px 45px;
+  padding-left: 44px;
+  padding-right: 50px;
+  transition: all 0.3s ease-out;
+  border: none;
+}
+
+@media screen and (max-width: 1368px) {
+  .offer-button {
+    max-width: 311px;
+    min-height: 36px;
+    border-radius: 0px 45px 45px 45px;
+    padding-left: 42px;
+    padding-right: 45px;
+  }
+}
+
+.offer-button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.offer-button__title {
+  color: white;
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+}
+
+@media screen and (max-width: 1368px) {
+  .offer-button__title {
+    font-size: 16px;
+    margin: 8px 0;
+  }
+}
+
+@media screen and (max-width: 557px) {
+  .offer-button__title-min {
+    color: white;
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    margin: 5px 0;
+  }
+}

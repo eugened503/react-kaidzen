@@ -1,13 +1,14 @@
 import React from "react";
-import "./VideoContainer.css";
-import Marquee from "../Marquee/Marquee";
 import Cursor from "../Cursor/Cursor";
+//import Marquee from "../Marquee/Marquee";
+import DoubleMarquee from "../DoubleMarquee/DoubleMarquee";
 
 function VideoContainer() {
   return (
     <section className="video">
-      <Marquee />
-       <Cursor /> 
+      <DoubleMarquee />
+      {/* <Marquee />    */}
+      <Cursor />
     </section>
   );
 }

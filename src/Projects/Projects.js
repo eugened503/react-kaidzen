@@ -1,113 +1,143 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import "./Projects.css";
 import ProjectsInfo from "../ProjectsInfo/ProjectsInfo";
 import SwiperJs from "../SwiperJs/SwiperJs";
 import classNames from "classnames";
 
-function Projects({ scroll, openContent }) {
-  const [navigationMenuVisibleState, setNavigationMenuVisibleState] =
-    useState(true);
-  const [navigationMenuVisibleState2, setNavigationMenuVisibleState2] =
-    useState(true);
-  const [navigationMenuVisibleState3, setNavigationMenuVisibleState3] =
-    useState(true);
+function Projects({ openContent, backToTop }) {
+  const [navigationTitle, setNavigationTitle] = useState(true);
+  const [navigationSubtitle, setNavigationSubtitle] = useState(true);
+  const [navigationProjects, setNavigationProjects] = useState(true);
+  const containerRef = useRef(null);
+  const navigationPrevRef = useRef(null);
+  const navigationNextRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const buttonBlue = [...document.querySelectorAll(".button-container__blue")];
+  const images = [...document.querySelectorAll(".data-img")];
 
-
-  const [xTrailing, setxTrailing] = useState(null);
-  const [yTrailing, setyTrailing] = useState(null);
-
-  const [xTrailing2, setxTrailing2] = useState(null);
-  const [yTrailing2, setyTrailing2] = useState(null);
-
-  const [button, setButton] = useState(false);
-  const [button2, setButton2] = useState(false);
-  const [button3, setButton3] = useState(false);
-
-  const buttonContainerStyle = button3
-    ? "projects-all__buttons-item_hidden"
-    : "button-container__blue";
-
-  const classStyle = !button3 ? "projects-all__buttons-item_hidden" : "button-container__item";
+  const backToTopAllProjects = () => {
+    openContent();
+    backToTop();
+  };
 
   useEffect(() => {
-    const flag = scroll >= 1200 ? true : false;
-
-    setNavigationMenuVisibleState(flag);
-
+    const flag = isVisible ? true : false;
+    setNavigationTitle(flag);
     setTimeout(() => {
-      setNavigationMenuVisibleState2(flag);
+      setNavigationSubtitle(flag);
     }, 500);
     setTimeout(() => {
-      setNavigationMenuVisibleState3(flag);
+      setNavigationProjects(flag);
     }, 800);
-  }, [scroll]);
+  }, [isVisible]);
 
   const handleMouseMove = (e) => {
     const { clientX, clientY } = e;
-
-    setTimeout(() => {
-      setxTrailing(clientX);
-      setyTrailing(clientY);
-    }, 100);
+    buttonBlue.forEach((i) => {
+      let hw = i.clientWidth / 2;
+      let hh = i.clientHeight / 2;
+      let x = i.offsetLeft + hw - clientX;
+      let y = i.offsetTop + hh - clientY;
+      if (Math.abs(x) > hw || Math.abs(y) > hh) return;
+      i.style.backgroundPosition = 50 - x / 5 + "% " + (50 - y / 5) + "%";
+    });
   };
 
-  const handleMouseMove2 = (e) => {
+  const handleMouseMoveButtons = (e) => {
     const { clientX, clientY } = e;
-    setTimeout(() => {
-      setxTrailing2(clientX);
-      setyTrailing2(clientY);
-    }, 300);
+    images.forEach((i) => {
+      let hw = i.clientWidth / 2;
+      let hh = i.clientHeight / 2;
+      let x = i.offsetLeft + hw - clientX;
+      let y = i.offsetTop + hh - clientY;
+      if (Math.abs(x) > hw || Math.abs(y) > hh) return;
+      i.style.backgroundPosition = 50 - x / 5 + "% " + (50 - y / 2) + "%";
+    });
   };
 
-  const gogo = () => {
-    setButton2(!button2);
+  const back = () => {
+    images.forEach((i) => {
+      i.style.backgroundPosition = 50 + "% " + 50 + "%";
+    });
   };
 
-  const gogo2 = () => {
-    setButton(!button);
+  const backbuttonBlue = () => {
+    buttonBlue.forEach((i) => {
+      i.style.backgroundPosition = 50 + "% " + 50 + "%";
+    });
   };
+
+  const callbackFunction = (entries) => {
+    const [entry] = entries;
+    setIsVisible(entry.isIntersecting);
+  };
+
+  useEffect(() => {
+    const currentRef = containerRef.current;
+    const observer = new IntersectionObserver(callbackFunction);
+    if (currentRef) observer.observe(currentRef);
+
+    return () => {
+      if (currentRef) observer.unobserve(currentRef);
+    };
+  }, [containerRef]);
 
   return (
-    <section className="projects" id="projects">
-      <ProjectsInfo
-        navigationMenuVisibleState={navigationMenuVisibleState}
-        navigationMenuVisibleState2={navigationMenuVisibleState2}
-        title={"НАШИ ПРОЕКТЫ"}
-        subtitle={"256+ в портфолио"}
-      />
-      <div
-        className={classNames("navigation-menu3", {
-          visible: navigationMenuVisibleState3,
-        })}
-      >
-        <div className="projects-all" onMouseMove={(e) => handleMouseMove(e)}>
-          <SwiperJs
-            gogo={gogo}
-            gogo2={gogo2}
-            xTrailing={xTrailing}
-            yTrailing={yTrailing}
-          />
-        </div>
-
+    <>
+      <section className="projects" id="projects" ref={containerRef}>
+        <ProjectsInfo
+          navigationTitle={navigationTitle}
+          navigationSubtitle={navigationSubtitle}
+          title={"НАШИ ПРОЕКТЫ"}
+          subtitle={"256+ в портфолио"}
+        />
         <div
-          className="button-container"
-          onMouseEnter={() => setButton3(!button3)}
-          onMouseLeave={() => setButton3(!button3)}
-          onMouseMove={(e) => handleMouseMove2(e)}
-          onClick={openContent}
+          className={classNames("projects-all__buttons-navigation", {
+            visible: navigationProjects,
+          })}
         >
-          <button className={buttonContainerStyle} />
+          <div className="projects-all__buttons projects-all__buttons_display">
+            <div
+              ref={navigationPrevRef}
+              className="projects-all__buttons-left data-img"
+              onMouseMove={(e) => handleMouseMoveButtons(e)}
+              onMouseLeave={back}
+            />
+            <div
+              className="projects-all__buttons-right data-img"
+              onMouseMove={(e) => handleMouseMoveButtons(e)}
+              onMouseLeave={back}
+              ref={navigationNextRef}
+            />
+          </div>
         </div>
-      </div>
+        <div
+          className={classNames("navigation-lead", {
+            visible: navigationProjects,
+          })}
+        >
+          <div className="projects-all">
+            <SwiperJs
+              navigationPrevRef={navigationPrevRef}
+              navigationNextRef={navigationNextRef}
+              sliderStyle={"projects-slider_height"}
+            />
+          </div>
 
-      <button
-        className={classStyle}
-        style={{
-          left: xTrailing2,
-          top: yTrailing2,
-        }}
-      />
-    </section>
+          <div className="button-container">
+            <Link to="/all-projects">
+              <div
+                className="button-container__blue"
+                onMouseMove={(e) => handleMouseMove(e)}
+                onMouseLeave={backbuttonBlue}
+                onClick={backToTopAllProjects}
+              />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
 

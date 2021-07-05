@@ -2,13 +2,7 @@ import React from "react";
 import "./Footer.css";
 import top from "../images/top.png";
 
-function Footer() {
-  const backToTop = () => {
-    if (window.pageYOffset > 0) {
-      window.scrollBy(0, -80);
-      setTimeout(backToTop, 0);
-    }
-  };
+function Footer({backToTop}) {
 
   return (
     <footer className="footer">

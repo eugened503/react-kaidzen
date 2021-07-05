@@ -2,7 +2,9 @@ import React from "react";
 import "./Header.css";
 import kaidzen from "../images/kaidzen.svg";
 import search from "../images/search.svg";
+import searchMobile from "../images/search-mobile.svg";
 import Navigation from "../Navigation/Navigation";
+import { HashLink as Link } from "react-router-hash-link";
 
 function Header({ headerClass, openlSearchModal }) {
   let prevScrollpos = window.pageYOffset;
@@ -18,14 +20,26 @@ function Header({ headerClass, openlSearchModal }) {
   };
 
   return (
-    <div  className="header-background">
-    <header className={`${headerClass} header`}>
-      <img src={kaidzen} alt="kaidzen" />
-      <Navigation />
-      <img src={search} alt="search" onClick={openlSearchModal} />
-    </header>
-
-</div>
+    <div className="header-background">
+      <header className={`${headerClass} header`}>
+        <Link to="/#lead">
+          <img className="header__image" src={kaidzen} alt="kaidzen" />
+        </Link>
+        <Navigation item={"Оставить заявку"} />
+        <img
+          className="header__search"
+          src={search}
+          alt="search"
+          onClick={openlSearchModal}
+        />
+        <img
+          className="header__search-mobile"
+          src={searchMobile}
+          alt="search-mobile"
+          onClick={openlSearchModal}
+        />
+      </header>
+    </div>
   );
 }
 

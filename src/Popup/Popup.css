@@ -1,0 +1,184 @@
+.ReactModal__Overlay--after-open {
+  background-color: rgba(21, 21, 25, 1) !important;
+  z-index: 100000;
+  animation: slideinY 2s;
+  transition-duration: 1s;
+  transition-property: all;
+}
+
+@keyframes slideinY {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.form__title {
+  text-align: center;
+  font-family: "Rubik";
+  font-style: italic;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 47px;
+  margin-top: 45px;
+  text-transform: uppercase;
+  color: #ffffff;
+  animation-name: Appearance;
+  animation-duration: 4s;
+  animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  max-width: 657px;
+  padding-bottom: 24px;
+}
+
+.form__image {
+  width: 155px;
+  height: 155px;
+  animation-name: Appearance;
+  animation-duration: 3s;
+  animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
+}
+
+@-webkit-keyframes Appearance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes Appearance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes Appearance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes Appearance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.form__subtitle {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 140%;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  color: #5d5d63;
+  animation-name: Appearance;
+  animation-duration: 5s;
+  animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
+}
+
+.modal__close {
+  top: -75%;
+  right: -65.5%;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  outline: 0;
+  box-shadow: none;
+  align-items: center;
+  border: none;
+  background: none;
+  outline: none;
+  -webkit-transition: -webkit-transform 0.8s ease-in-out;
+  transition: transform 0.8s ease-in-out;
+}
+
+@media screen and (max-width: 1641px) {
+  .modal__close {
+    right: -35.5%;
+  }
+}
+
+@media screen and (max-width: 1249px) {
+  .modal__close {
+    right: -15.5%;
+  }
+}
+
+@media screen and (max-width: 945px) {
+  .modal__close {
+    right: 0;
+  }
+}
+
+@media screen and (max-width: 753px) {
+  .modal__close {
+    right: 10%;
+  }
+}
+
+@media screen and (max-width: 666px) {
+  .modal__close {
+    right: 15%;
+    top: -55%;
+  }
+}
+
+@media screen and (max-width: 399px) {
+  .modal__close {
+    right: 20%;
+    top: -35%;
+  }
+}
+
+.modal__close_top {
+  top: -20%;
+  left: 100%;
+}
+
+@media screen and (max-width: 860px) {
+  .modal__close_top {
+    top: -10%;
+    left: 90%;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .modal__close_top {
+    top: -5%;
+    left: 90%;
+  }
+}
+
+.modal__close:hover {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.modal__image {
+  height: 32px;
+  width: 32px;
+}

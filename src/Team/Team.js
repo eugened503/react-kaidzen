@@ -1,57 +1,67 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Team.css";
 import ProjectsInfo from "../ProjectsInfo/ProjectsInfo";
 import classNames from "classnames";
-import SwiperJs2 from "../SwiperJs2/SwiperJs2";
+import SwiperTeam from "../SwiperTeam/SwiperTeam";
+import {useIsMounted} from '../utils/utils'
 
+function Team() {
+  const isMounted = useIsMounted();
+  const [navigationTitle, setNavigationTitle] = useState(true);
+  const [navigationSubtitle, setNavigationSubtitle] = useState(true);
 
-
-function Team({ scroll, startProjects }) {
-  
-  const [navigationMenuVisibleState4, setNavigationMenuVisibleState4] =
+  const [navigationMenuVisibleState, setNavigationMenuVisibleState] =
     useState(false);
 
-  const [navigationMenuVisibleState5, setNavigationMenuVisibleState5] =
-    useState(false);
+  const containerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-  const [navigationMenuVisibleState6, setNavigationMenuVisibleState6] =
-    useState(false);
+  const callbackFunction = (entries) => {
+    const [entry] = entries;
+    setIsVisible(entry.isIntersecting);
+  };
 
   useEffect(() => {
-    const flag =
-      (scroll >= 1200 && !startProjects) || (scroll >= 3971 && startProjects)
-        ? true
-        : false;
+    const currentRef = containerRef.current;
+    const observer = new IntersectionObserver(callbackFunction);
+    if (currentRef) observer.observe(currentRef);
 
-    setNavigationMenuVisibleState4(flag);
+    return () => {
+      if (currentRef) observer.unobserve(currentRef);
+    };
+  }, [containerRef]);
+
+  useEffect(() => {
+    const flag = isVisible ? true : false;
+
+    if (isMounted.current) setNavigationTitle(flag);
 
     setTimeout(() => {
-      setNavigationMenuVisibleState5(flag);
+      if (isMounted.current)
+      setNavigationSubtitle(flag);
     }, 500);
 
     setTimeout(() => {
-      setNavigationMenuVisibleState6(flag);
+      if (isMounted.current)
+      setNavigationMenuVisibleState(flag);
     }, 800);
-  }, [scroll, startProjects]);
+  }, [isMounted, isVisible]);
 
   return (
-    <section className="team" id="team">
+    <section className="team" id="team" ref={containerRef}>
       <ProjectsInfo
-        navigationMenuVisibleState={navigationMenuVisibleState4}
-        navigationMenuVisibleState2={navigationMenuVisibleState5}
+        navigationTitle={navigationTitle}
+        navigationSubtitle={navigationSubtitle}
         title={"КОМАНДА"}
         subtitle={"ИЗ БОЛЕЕ 100 профессионалов"}
+        teamInfo={"team-info"}
       />
       <div
-        className={classNames("navigation-menu3", {
-          visible: navigationMenuVisibleState6,
+        className={classNames("team-lead", {
+          visible: navigationMenuVisibleState,
         })}
       >
-        <div
-          className="team-container_1"
-        >
-          <SwiperJs2 />
-        </div>
+       <SwiperTeam /> 
       </div>
     </section>
   );

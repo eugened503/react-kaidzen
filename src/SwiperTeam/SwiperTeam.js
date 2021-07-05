@@ -1,11 +1,10 @@
-import React, { useRef, useState } from "react";
-import "./SwiperJs2.css";
+import React, { useRef } from "react";
+import "./SwiperTeam.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/swiper.min.css";
 import "swiper/components/navigation/navigation.min.css";
 
-// import Swiper core and required modules
 import SwiperCore, { Navigation } from "swiper/core";
 import Vladimir from "../images/Vladimir.jpg";
 import Dmitry from "../images/Dmitry.jpg";
@@ -14,23 +13,64 @@ import Valentin from "../images/Valentin.jpg";
 
 SwiperCore.use([Navigation]);
 
-function SwiperJs2() {
+function SwiperTeam() {
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
- 
-  const screenSlide = window.screen.width <= 1325  ? 1 : 2
+  const screenSlide = window.screen.width <= 1420 ? 1 : 2;
+  const images = [...document.querySelectorAll(".data-img")];
 
-//console.log(window.screen.width)
- 
+  // const data = [
+  //   {
+  //     title: "Владимир Харитонов",
+  //     subtitle: "Leader Branch Manager in St. Petersburg",
+  //     image: Dmitry,
+    
+  //   },
+  //   {
+  //     title: "Дмитрий Климов",
+  //     subtitle: "Lead backend developer №1",
+  //     image: DmitryKlimov,
+    
+  //   },
+  //   {
+  //     title: "Дмитрий Королев",
+  //     subtitle: "Lead backend developer №1",
+  //     image: Vladimir,
+    
+  //   },
+  //   {
+  //     title: "Валентин Воробьёв",
+  //     subtitle: "Lead frontend developer №2",
+  //     image: Valentin,
+    
+  //   },
+   
+  // ];
+
+  const handleMouseMoveButtons = (e) => {
+    const { clientX, clientY } = e;
+    images.forEach((i) => {
+      let hw = i.clientWidth / 2;
+      let hh = i.clientHeight / 2;
+      let x = i.offsetLeft + hw - clientX;
+      let y = i.offsetTop + hh - clientY;
+      if (Math.abs(x) > hw || Math.abs(y) > hh) return;
+      i.style.backgroundPosition = 50 - x / 5 + "% " + (50 - y / 2) + "%";
+    });
+  };
+
+  const back = () => {
+    images.forEach((i) => {
+      i.style.backgroundPosition = 50 + "% " + 50 + "%";
+    });
+  };
+
   return (
     <>
       <Swiper
         loop={true}
         slidesPerView={screenSlide}
-        //  navigation={true}
-        //   navigation={{
-        //    nextEl: "js-prev1",
-        //  }}
+        spaceBetween={20}
         navigation={{
           prevEl: navigationPrevRef.current,
           nextEl: navigationNextRef.current,
@@ -41,16 +81,12 @@ function SwiperJs2() {
           swiper.navigation.init();
           swiper.navigation.update();
         }}
-        className="swiper-container mySwiper swiper-mod"
+        className="swiper-container swiper-team"
       >
         <SwiperSlide className="swiper-overflow">
           <div className="team-container">
             <div className="team-container__item">
-              <img
-                src={Dmitry}
-                className="team-container__participant"
-                alt="participant"
-              />
+            <img className="team-container__image" src={Vladimir} alt="participant" />
 
               <div className="team-container__info">
                 <h3 className="team-container__title">Владимир Харитонов</h3>
@@ -61,11 +97,7 @@ function SwiperJs2() {
               </div>
             </div>
             <div className="team-container__item">
-              <img
-                src={DmitryKlimov}
-                className="team-container__participant"
-                alt="participant"
-              />
+              <img className="team-container__image" src={DmitryKlimov} alt="participant" />
 
               <div className="team-container__info">
                 <h3 className="team-container__title">Дмитрий Климов</h3>
@@ -81,11 +113,8 @@ function SwiperJs2() {
         <SwiperSlide className="swiper-overflow">
           <div className="team-container">
             <div className="team-container__item">
-              <img
-                src={Vladimir}
-                className="team-container__participant"
-                alt="participant"
-              />
+            <img className="team-container__image" src={Dmitry} alt="participant" />
+            
 
               <div className="team-container__info">
                 <h3 className="team-container__title">Дмитрий Королев</h3>
@@ -94,11 +123,7 @@ function SwiperJs2() {
               </div>
             </div>
             <div className="team-container__item">
-              <img
-                src={Valentin}
-                className="team-container__participant"
-                alt="participant"
-              />
+              <img src={Valentin} alt="participant" />
 
               <div className="team-container__info">
                 <h3 className="team-container__title">Валентин Воробьёв</h3>
@@ -114,12 +139,8 @@ function SwiperJs2() {
         <SwiperSlide className="swiper-overflow">
           <div className="team-container">
             <div className="team-container__item">
-              <img
-                src={Dmitry}
-                className="team-container__participant"
-                alt="participant"
-              />
-
+            
+              <img className="team-container__image" src={Vladimir} alt="participant" />
               <div className="team-container__info">
                 <h3 className="team-container__title">Владимир Харитонов</h3>
 
@@ -129,11 +150,7 @@ function SwiperJs2() {
               </div>
             </div>
             <div className="team-container__item">
-              <img
-                src={DmitryKlimov}
-                className="team-container__participant"
-                alt="participant"
-              />
+              <img className="team-container__image" src={DmitryKlimov} alt="participant" />
 
               <div className="team-container__info">
                 <h3 className="team-container__title">Дмитрий Климов</h3>
@@ -149,11 +166,8 @@ function SwiperJs2() {
         <SwiperSlide className="swiper-overflow">
           <div className="team-container">
             <div className="team-container__item">
-              <img
-                src={Vladimir}
-                className="team-container__participant"
-                alt="participant"
-              />
+            <img className="team-container__image" src={Dmitry} alt="participant" />
+            
 
               <div className="team-container__info">
                 <h3 className="team-container__title">Дмитрий Королев</h3>
@@ -162,11 +176,7 @@ function SwiperJs2() {
               </div>
             </div>
             <div className="team-container__item">
-              <img
-                src={Valentin}
-                className="team-container__participant"
-                alt="participant"
-              />
+              <img className="team-container__image" src={Valentin} alt="participant" />
 
               <div className="team-container__info">
                 <h3 className="team-container__title">Валентин Воробьёв</h3>
@@ -179,29 +189,24 @@ function SwiperJs2() {
           </div>
         </SwiperSlide>
       </Swiper>
-      <div className="projects-all__buttons">
-        <div
-          className="projects-all__buttons-container"
-        
-        >
-          <button
-            className="projects-all__buttons-item1"
+   
+  <div className="projects-all__buttons team-buttons">
+          <div
             ref={navigationPrevRef}
+            className="projects-all__buttons-left data-img team-buttons__right "
+            onMouseMove={(e) => handleMouseMoveButtons(e)}
+            onMouseLeave={back}
           />
-        </div>
-
-        <div
-          className="projects-all__buttons-container "
-          
-        >
-          <button
-            className="projects-all__buttons-item2"
+          <div
+            className="team-buttons__left projects-all__buttons-right data-img"
+            onMouseMove={(e) => handleMouseMoveButtons(e)}
+            onMouseLeave={back}
             ref={navigationNextRef}
           />
-        </div>
-      </div>
+        </div> 
+
     </>
   );
 }
 
-export default SwiperJs2;
+export default SwiperTeam;

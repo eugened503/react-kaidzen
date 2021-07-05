@@ -8,44 +8,44 @@ function Screen() {
       <section className="screen">
         <div className="screen-load__item">
           <div
-            className={classNames("text-one2", {
-              visible2: true,
+            className={classNames("text-one", {
+              we: true,
             })}
           >
             <h3 className="screen-title">we</h3>
           </div>
         </div>
 
-        <div className="screen-load__item2">
+        <div className="screen-load__item-make">
           <div
-            className={classNames("text-one2", {
-              visible33: true,
+            className={classNames("text-one", {
+              make: true,
             })}
           >
             <h2 className="screen-title">make</h2>
           </div>
 
           <div
-            className={classNames("text-one2", {
-              visible44: true,
+            className={classNames("text-one", {
+              love: true,
             })}
           >
             <h2 className="screen-title">love</h2>
           </div>
 
           <div
-            className={classNames("text-one2", {
-              visible55: true,
+            className={classNames("text-one", {
+              grow: true,
             })}
           >
             <h2 className="screen-title">grow</h2>
           </div>
         </div>
 
-        <div className="screen-load__item3">
+        <div className="screen-load__item-products">
           <div
-            className={classNames("text-one2", {
-              visible4: true,
+            className={classNames("text-one", {
+              products: true,
             })}
           >
             <h2 className="screen-title">products</h2>

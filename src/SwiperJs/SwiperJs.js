@@ -1,5 +1,4 @@
-import React, { useRef, useState } from "react";
-import "./SwiperJs.css";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import "swiper/components/navigation/navigation.min.css";
@@ -9,32 +8,55 @@ import SwiperCore, { Navigation } from "swiper/core";
 
 SwiperCore.use([Navigation]);
 
-function SwiperJs() {
-  const navigationPrevRef = useRef(null);
-  const navigationNextRef = useRef(null);
+function SwiperJs({ navigationPrevRef, navigationNextRef, sliderStyle }) {
+  const windowScreenWidth = window.screen.width;
+  const [screenSlide, setScreenSlide] = useState(null);
 
-  const screenSlide = window.screen.width <= 1283  ? 1 : 2
- 
+  useEffect(() => {
+    const screen = windowScreenWidth <= 360 ? 160 : null;
+    setScreenSlide(screen);
+  }, [windowScreenWidth]);
+
+  const data = [
+    {
+      image: prostaff,
+      name: "PROSTAFF",
+      date: "2021",
+    },
+    {
+      image: britannica,
+      name: "Britannica project",
+      date: "2021",
+    },
+    {
+      image: prostaff,
+      name: "PROSTAFF",
+      date: "2021",
+    },
+    {
+      image: britannica,
+      name: "Britannica project",
+      date: "2021",
+    },
+    {
+      image: prostaff,
+      name: "PROSTAFF",
+      date: "2021",
+    },
+    {
+      image: britannica,
+      name: "Britannica project",
+      date: "2021",
+    },
+  ];
+
   return (
     <>
-      <div className="projects-all__buttons">
-        <div className="projects-all__buttons-container">
-          <button
-            className="projects-all__buttons-item1"
-            ref={navigationPrevRef}
-          />
-        </div>
-
-        <div className="projects-all__buttons-container ">
-          <button
-            className="projects-all__buttons-item2"
-            ref={navigationNextRef}
-          />
-        </div>
-      </div>
       <Swiper
+        slidesOffsetBefore={screenSlide}
         loop={true}
-        slidesPerView={screenSlide}
+        spaceBetween={8}
+        slidesPerView={2}
         navigation={{
           prevEl: navigationPrevRef.current,
           nextEl: navigationNextRef.current,
@@ -45,81 +67,36 @@ function SwiperJs() {
           swiper.navigation.init();
           swiper.navigation.update();
         }}
-        className="swiper-container mySwiper swiper-mod"
+        className="swiper-container-projects swiper-mod"
       >
-        <SwiperSlide className="swiper-overflow">
-          <div className="projects-slider">
-            <img alt="project" src={prostaff} />
+        {data.reverse().map((item, index) => {
+          return (
+            <SwiperSlide
+              className={`${sliderStyle} swiper-overflow`}
+              key={index}
+            >
+              <div className="projects-slider">
+                <div className="projects-image">
+                  <div className="projects-image__frame">
+                    <img
+                      alt="project"
+                      src={item.image}
+                      className="projects-image__item"
+                    />
 
-            <div className="projects-container">
-              <div className="project-name">
-                <h3 className="project-name__title">PROSTAFF</h3>
-                <p className="project-name__date">2021</p>
+                    <div />
+                  </div>
+                </div>
+                <div className="projects-container">
+                  <div className="project-name">
+                    <h3 className="project-name__title">{item.name}</h3>
+                    <p className="project-name__date">{item.date}</p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="swiper-overflow">
-          <div className="projects-slider">
-            <img alt="project" src={britannica} />
-
-            <div className="projects-container">
-              <div className="project-name">
-                <h3 className="project-name__title">Britannica project</h3>
-                <p className="project-name__date">2021</p>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="swiper-overflow">
-          <div className="projects-slider">
-            <img alt="project" src={britannica} />
-
-            <div className="projects-container">
-              <div className="project-name">
-                <h3 className="project-name__title">Britannica project</h3>
-                <p className="project-name__date">2021</p>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-
-        <SwiperSlide className="swiper-overflow">
-          <div className="projects-slider">
-            <img alt="project" src={prostaff} />
-
-            <div className="projects-container">
-              <div className="project-name">
-                <h3 className="project-name__title">PROSTAFF</h3>
-                <p className="project-name__date">2021</p>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="swiper-overflow">
-          <div className="projects-slider">
-            <img alt="project" src={britannica} />
-
-            <div className="projects-container">
-              <div className="project-name">
-                <h3 className="project-name__title">Britannica project</h3>
-                <p className="project-name__date">2021</p>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="swiper-overflow">
-          <div className="projects-slider">
-            <img alt="project" src={britannica} />
-
-            <div className="projects-container">
-              <div className="project-name">
-                <h3 className="project-name__title">Britannica project</h3>
-                <p className="project-name__date">2021</p>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </>
   );

@@ -1,97 +1,89 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./ProjectsAll.css";
 import ProjectsInfo from "../ProjectsInfo/ProjectsInfo";
 import arrowArcRight from "../images/arrowArcRight.png";
 import britannica2 from "../images/britannica2.jpg";
+import AllProjectsSlider from "../AllProjectsSlider/AllProjectsSlider";
 
-function ProjectsAll({ projects, startProjects }) {
+function ProjectsAll() {
+  const data = [
+    {
+      image: britannica2,
+      title: "Britannica project",
+      date: "2021",
+      info: "Разработка сервиса для создания чек листов Auditor-Pro Автоматизация HR отдела на базе Битрикс24 и других сервисов",
+    },
+    {
+      image: britannica2,
+      title: "Britannica project",
+      date: "2021",
+      info: "Разработка сервиса для создания чек листов Auditor-Pro Автоматизация HR отдела на базе Битрикс24 и других сервисов",
+    },
+    {
+      image: britannica2,
+      title: "Britannica project",
+      date: "2021",
+      info: "Разработка сервиса для создания чек листов Auditor-Pro Автоматизация HR отдела на базе Битрикс24 и других сервисов",
+    },
+  ];
 
-  
   const [navigationMenuVisibleState, setNavigationMenuVisibleState] =
     useState(false);
-  
+
+  const containerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const gg = startProjects ? true : false;
+    const flag = isVisible ? true : false;
 
     setTimeout(() => {
-      setNavigationMenuVisibleState(gg);
+      setNavigationMenuVisibleState(flag);
     }, 300);
- 
+  }, [isVisible]);
 
-  }, [startProjects]);
+  const callbackFunction = (entries) => {
+    const [entry] = entries;
+    setIsVisible(entry.isIntersecting);
+  };
+
+  useEffect(() => {
+    const currentRef = containerRef.current;
+    const observer = new IntersectionObserver(callbackFunction);
+    if (currentRef) observer.observe(currentRef);
+
+    return () => {
+      if (currentRef) observer.unobserve(currentRef);
+    };
+  }, [containerRef]);
+
 
   return (
-    <section className={projects}>
+    <section className="all-projects_visible" ref={containerRef}>
       <ProjectsInfo
-        navigationMenuVisibleState={navigationMenuVisibleState}
-        
+        navigationTitle={navigationMenuVisibleState}
         title={"НАШИ ПРОЕКТЫ"}
+        projectsMobile={"all-projects_mobile"}
+  
       />
       <div className="all-projects__container">
-        <button className="all-projects__button">
+        <button className="all-projects__button all-projects__button_none">
           <img src={arrowArcRight} alt="arrowArcRight" />
           <p className="all-projects__item">связаться с нами</p>
         </button>
 
-        <div className="all-projects__block">
-          <div className="all-projects__slider">
-            <img
-              className="all-projects__image"
-              alt="project"
-              src={britannica2}
-            />
-
-            <div className="projects-container">
-              <div className="project-name project-name_align">
-                <h3 className="project-name__title">Britannica project</h3>
-                <p className="project-name__date">2021</p>
-              </div>
-            </div>
-            <p className="project-name__info">
-              Разработка сервиса для создания чек листов Auditor-Pro
-              Автоматизация HR отдела на базе Битрикс24 и других сервисов
-            </p>
-          </div>
-
-          <div className="all-projects__slider">
-            <img
-              className="all-projects__image"
-              alt="project"
-              src={britannica2}
-            />
-
-            <div className="projects-container">
-              <div className="project-name project-name_align">
-                <h3 className="project-name__title">Britannica project</h3>
-                <p className="project-name__date">2021</p>
-              </div>
-            </div>
-            <p className="project-name__info">
-              Разработка сервиса для создания чек листов Auditor-Pro
-              Автоматизация HR отдела на базе Битрикс24 и других сервисов
-            </p>
-          </div>
-
-          <div className="all-projects__slider">
-            <img
-              className="all-projects__image"
-              alt="project"
-              src={britannica2}
-            />
-
-            <div className="projects-container">
-              <div className="project-name project-name_align">
-                <h3 className="project-name__title">Britannica project</h3>
-                <p className="project-name__date">2021</p>
-              </div>
-            </div>
-            <p className="project-name__info">
-              Разработка сервиса для создания чек листов Auditor-Pro
-              Автоматизация HR отдела на базе Битрикс24 и других сервисов
-            </p>
-          </div>
-        </div>
+       <div className="all-projects__block">
+          {data.map((item, index) => {
+            return (
+              <AllProjectsSlider
+                key={index}
+                image={item.image}
+                title={item.title}
+                date={item.date}
+                info={item.info}
+              />
+            );
+          })}
+        </div>  
       </div>
       <p className="all-projects__load">Загружаем, подождите</p>
     </section>

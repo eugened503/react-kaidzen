@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./SearchPopup.css";
 import Modal from "react-modal";
-
+import { useIsMounted } from "../utils/utils";
 import magnifyingGlass from "../images/magnifyingGlass.png";
 import kaidzen from "../images/kaidzen.svg";
 import Navigation from "../Navigation/Navigation";
-import ReactTypingEffectDemo from "../ReactTypingEffectDemo/ReactTypingEffectDemo";
+import ReactTyping from "../ReactTyping/ReactTyping";
 
 function SearchPopup({ modalIsOpen, closeMyModal }) {
   const flexDirection = window.screen.width <= 1176 ? "column" : "row";
+  const isMounted = useIsMounted();
+  const text = ["PROSTAFF", "Britannica project", "WonderTask"];
 
   const customStyles = {
     content: {
@@ -20,8 +22,7 @@ function SearchPopup({ modalIsOpen, closeMyModal }) {
       transform: "translate(-50%, -50%)",
       backgroundColor: "inherit",
       overflow: "none",
-        border: "none",
-      //border: "green solid 1px",
+      border: "none",
       minHeight: "614px",
       display: "flex",
       justifyContent: "space-between",
@@ -33,10 +34,11 @@ function SearchPopup({ modalIsOpen, closeMyModal }) {
   const [typing, setTyping] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
-      setTyping(true);
-    }, 1500);
-  }, []);
+    if (isMounted.current)
+      setTimeout(() => {
+        setTyping(true);
+      }, 1500);
+  }, [isMounted]);
 
   function closeModal() {
     closeMyModal();
@@ -46,14 +48,16 @@ function SearchPopup({ modalIsOpen, closeMyModal }) {
     <div>
       <Modal
         isOpen={modalIsOpen}
-        //onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal"
         ariaHideApp={false}
       >
         <img src={kaidzen} className="form-logo" alt="kaidzen" />
-        <button className="modal__close modal__close_top" onClick={closeModal}>
+        <button
+          className="form-close modal__close modal__close_top"
+          onClick={closeModal}
+        >
           <img
             className="modal__image"
             src={magnifyingGlass}
@@ -67,17 +71,28 @@ function SearchPopup({ modalIsOpen, closeMyModal }) {
             direction={"menu-container_column"}
             size={"menu-container__link_size"}
             closeMyModal={closeMyModal}
+            item={"Контакты"}
           />
         </form>
 
         <div className="form-container">
           <h3 className="form-container__title">Поиск по сайту</h3>
-          {typing ? <ReactTypingEffectDemo /> : null}
 
-          <input
-            className="application-info__input form-container__input"
-            onClick={() => setTyping(!typing)}
-          />
+          <div className="form-input">
+            <div className="form-typing">
+              {typing ? (
+                <ReactTyping
+                  text={text}
+                  styleTitle={"form-container__type form-container__type_color"}
+                  styleSubtitle={"form-container__subtitle"}
+                />
+              ) : null}
+            </div>
+            <input
+              className="form-container__input"
+              onClick={() => setTyping(false)}
+            />
+          </div>
           <p className="form-container__subtitle">Самое популярное</p>
           <div className="form-container__tags">
             <div className="form-container__tag">
@@ -96,7 +111,7 @@ function SearchPopup({ modalIsOpen, closeMyModal }) {
               <p className="form-container__tag-content">Mriya resort & spa</p>
             </div>
 
-            <div className="form-container__tag">
+            <div className="form-container__tag form-container__tag_margin">
               <p className="form-container__tag-content">Britannica project</p>
             </div>
 
