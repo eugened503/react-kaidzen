@@ -40,13 +40,13 @@ function Popup({ modalIsOpen, closeMyModal }) {
           />
         </button>
 
-        <form className="form">
+        <div className="form">
           <img className="form__image" src={checkCircle} alt="checkCircle" />
           <h2 className="form__title">Заявка успешно отправлена</h2>
           <p className="form__subtitle">
             Ожидайте, С ВАМИ СВЯЖИТСЯ НАШ МЕНЕДЖЕР ДЛЯ УТОЧНЕНИЯ ДЕТАЛЕЙ
           </p>
-        </form>
+        </div>
       </Modal>
     </div>
   );

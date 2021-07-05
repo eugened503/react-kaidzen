@@ -69,7 +69,11 @@
     
       /* justify-content: space-around; */
       justify-content: space-between;
-      margin-top: -110px;
+      /* margin-top: -110px; */
+
+      margin-top: 230px;
+      /* margin-bottom: -70px; */
+      
     }
   }
   
@@ -119,9 +123,9 @@
  
 
 
-  @media screen and (max-width: 1079px) {
+  /* @media screen and (max-width: 1079px) {
     .ReactModal__Content--after-open {
    justify-content: flex-start !important;
   
     }
-  }
+  } */

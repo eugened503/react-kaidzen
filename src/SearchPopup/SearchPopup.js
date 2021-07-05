@@ -65,7 +65,7 @@ function SearchPopup({ modalIsOpen, closeMyModal }) {
           />
         </button>
 
-        <form className="form-seach">
+        <div className="form-seach">
           <Navigation
             margin={"menu_margin"}
             direction={"menu-container_column"}
@@ -73,7 +73,7 @@ function SearchPopup({ modalIsOpen, closeMyModal }) {
             closeMyModal={closeMyModal}
             item={"Контакты"}
           />
-        </form>
+        </div>
 
         <div className="form-container">
           <h3 className="form-container__title">Поиск по сайту</h3>

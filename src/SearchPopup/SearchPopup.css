@@ -6,7 +6,7 @@
 
 .form-logo {
   position: absolute;
-  top: -170px;
+ top: -170px; 
   left: 35px;
   width: 184px;
   height: 29px;
@@ -15,9 +15,9 @@
   animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 1079px) {
   .form-logo {
-    top: -180px;
+     top: 156px; 
     left: 15px;
     max-width: 140px;
     min-height: 22px;
@@ -36,7 +36,8 @@
 
 @media screen and (max-width: 1079px) {
   .form-container {
-    margin-top: -27px;
+    top: -31px
+     /* margin-top: -60px;  */
   }
 }
 
@@ -221,7 +222,7 @@
 
 @media screen and (max-width: 1079px) {
   .form-close {
-    top: -185px;
+     top: 150px;  
     left: 85.3%;
     max-width: 140px;
     min-height: 22px;
