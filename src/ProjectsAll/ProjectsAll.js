@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { HashLink as Link } from "react-router-hash-link";
 import "./ProjectsAll.css";
 import ProjectsInfo from "../ProjectsInfo/ProjectsInfo";
 import arrowArcRight from "../images/arrowArcRight.png";
@@ -68,7 +69,7 @@ function ProjectsAll() {
       <div className="all-projects__container">
         <button className="all-projects__button all-projects__button_none">
           <img src={arrowArcRight} alt="arrowArcRight" />
-          <p className="all-projects__item">связаться с нами</p>
+          <Link  to="/#application" className="all-projects__item">связаться с нами</Link>
         </button>
 
        <div className="all-projects__block">
