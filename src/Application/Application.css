@@ -14,9 +14,9 @@
   width: 100%;
 }
 
-@media screen and (max-width: 1640px) {
+@media screen and (max-width: 1181px) {
   .application-info__block-lead {
-    min-height: 163px;
+    min-height: 173px;
     flex-direction: column;
     justify-content: space-between;
   }
@@ -28,7 +28,7 @@
   flex-direction: row;
 }
 
-@media screen and (max-width: 1640px) {
+@media screen and (max-width: 1181px) {
   .application-info__block-last {
     margin-top: 42px;
     flex-direction: column;
@@ -37,7 +37,7 @@
   }
 }
 
-@media screen and (max-width: 1640px) {
+@media screen and (max-width: 1181px) {
   .application {
     padding-top: 45px;
     padding-left: 10px;
@@ -56,13 +56,15 @@
   margin: 0;
 }
 
-@media screen and (max-width: 1640px) {
-  /*!!!*/
+@media screen and (max-width: 1181px) {
   .application-info {
     padding-top: 57px;
     flex-direction: column;
     justify-content: space-between;
     min-height: 232px;
+    /* width: 312px; */
+    max-width: 330px;
+    margin:  0 auto;
   }
 }
 
@@ -128,12 +130,11 @@
 }
 
 .application-button {
-  margin-top: 65px;
+  margin: 65px;
 }
-
-@media screen and (max-width: 1640px) {
+ @media screen and (max-width: 1181px) {
   .application-button {
-    display: none;
+    margin: 65px auto 0 auto;
   }
 }
 
@@ -193,7 +194,7 @@
   transition: 300ms all;
 }
 
-@media screen and (max-width: 1640px) {
+@media screen and (max-width: 1181px) {
   .field {
     width: 100%;
   }
@@ -204,7 +205,7 @@
   width: 41.3vw;
 }
 
-@media screen and (max-width: 1640px) {
+@media screen and (max-width: 1181px) {
   .field_margin {
     margin-top: 0;
     width: 100%;
@@ -214,7 +215,7 @@
 .field__label::before {
   content: attr(title);
   position: absolute;
-  top: -20px;
+  top: -25px;
   left: 15px;
   font-family: "Ubuntu";
   font-style: normal;
@@ -227,7 +228,7 @@
   transition: 300ms all;
 }
 
-@media screen and (max-width: 1640px) {
+@media screen and (max-width: 1181px) {
   .field__label::before {
     width: 80%;
     top: -22px;
@@ -239,6 +240,7 @@
 
 .field__label_margin::before {
   top: -40px;
+  font-size: 20px;
 }
 
 .field__input {
@@ -251,7 +253,7 @@
   background: none;
   outline: none;
   padding: 0;
-  color: #d3d3d9;
+  color: #5d5d63;
   font-family: "Ubuntu";
   font-style: normal;
   font-weight: normal;
@@ -263,10 +265,18 @@
 
 }
 
-@media screen and (max-width: 1640px) {
+@media screen and (max-width: 1181px) {
   .field__input {
-    height: 10px;
-    font-size: 12px;
+    height: 20px;
+
+    /* font-size: 12px; */
+  }
+}
+
+@media screen and (max-width: 1181px) {
+  .field__label_margin::before {
+    top: -35px;
+   
   }
 }
 
@@ -281,7 +291,19 @@
   padding: 0 6px;
   left: 9px;
   content: attr(data-title);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
+
+.field__label:hover::before {
+  cursor: pointer;
+  /* transform: scale(1.1); */
+  filter: brightness(10);
+  
+}
+
+
 
 .field__input:focus + .field__label::before {
   line-height: 20px;
@@ -298,7 +320,7 @@
   width: 32.1%;
 }
 
-@media screen and (max-width: 1640px) {
+@media screen and (max-width: 1181px) {
   .cool-link {
     width: 100%;
   }
@@ -309,10 +331,11 @@
   min-height: 60px;
 }
 
-@media screen and (max-width: 1640px) {
+@media screen and (max-width: 1181px) {
   .field__input_margin {
     margin-top: 0;
     min-height: 10px;
+    font-size: 20px;
   }
 }
 
@@ -329,7 +352,15 @@
   width: 25%;
 }
 
-@media screen and (max-width: 1640px) {
+
+@media screen and (min-width: 361px) and (max-width: 1180px) {
+  .application-title {
+    margin: 80px auto 0 auto;
+  }
+}
+
+
+@media screen and (max-width: 360px) {
   .application-title {
     margin-top: 80px;
     margin-left: 13px;

@@ -5,6 +5,30 @@ import video from "../images/video.mp4";
 const Video = ({ handleCursorHidden, handleCursorBlock }) => {
   const videoRef = useRef(null);
 
+  //const [isVisible, setIsVisible] = useState(false);
+  // useEffect(() => {
+  //   if (!isVisible) {
+  //     handleCursorHidden();
+  //   } else {
+  //     handleCursorBlock();
+  //   }
+  // }, [handleCursorBlock, handleCursorHidden, isVisible]);
+
+  // const callbackFunction = (entries) => {
+  //   const [entry] = entries;
+  //   setIsVisible(entry.isIntersecting);
+  // };
+
+  // useEffect(() => {
+  //   const currentRef = containerRef.current;
+  //   const observer = new IntersectionObserver(callbackFunction);
+  //   if (currentRef) observer.observe(currentRef);
+
+  //   return () => {
+  //     if (currentRef) observer.unobserve(currentRef);
+  //   };
+  // }, [containerRef]);
+
   const toggleButon = () => {
     if (videoRef.current.muted) {
       videoRef.current.play();
@@ -17,8 +41,8 @@ const Video = ({ handleCursorHidden, handleCursorBlock }) => {
 
   return (
     <div
-      onMouseEnter={handleCursorBlock}
-      onMouseLeave={handleCursorHidden}
+      onMouseOver={handleCursorBlock}
+      onMouseOut={handleCursorHidden}
       className="container"
       onClick={toggleButon}
     >

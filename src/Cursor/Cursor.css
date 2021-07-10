@@ -10,9 +10,10 @@
   height: 140px;
   transform: translateX(-50%) translateY(-50%);
   pointer-events: none;
-  z-index: 100002;
+  z-index: 1;
   background-image: url("../images/button.png");
   background-size: cover;
+ 
 }
 
 .cursors-container {
@@ -24,5 +25,7 @@
 }
 
 .cursor-hidden {
-  visibility: hidden;
+   visibility: hidden; 
+   /* display: none; 
+  opacity: 0; */
 }

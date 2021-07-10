@@ -69,3 +69,7 @@
     min-height: 22px;
   }
 }
+
+.header__search {
+  cursor: pointer;
+}

@@ -34,7 +34,7 @@ function Application({ openModal }) {
                 id="email"
               />
               <label
-                className="field__label"
+                className="field__label field__label_margin"
                 htmlFor="email"
                 title="Эл. адрес (E-mail)"
                 data-title="Эл. адрес (E-mail)"

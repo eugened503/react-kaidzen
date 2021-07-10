@@ -86,6 +86,7 @@ function ProjectsAll() {
         </div>  
       </div>
       <p className="all-projects__load">Загружаем, подождите</p>
+      <div className="donut"></div>
     </section>
   );
 }

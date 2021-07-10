@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import "swiper/components/navigation/navigation.min.css";
@@ -76,6 +77,7 @@ function SwiperJs({ navigationPrevRef, navigationNextRef, sliderStyle }) {
               key={index}
             >
               <div className="projects-slider">
+              <Link to="/page-404">
                 <div className="projects-image">
                   <div className="projects-image__frame">
                     <img
@@ -87,6 +89,7 @@ function SwiperJs({ navigationPrevRef, navigationNextRef, sliderStyle }) {
                     <div />
                   </div>
                 </div>
+                </Link>
                 <div className="projects-container">
                   <div className="project-name">
                     <h3 className="project-name__title">{item.name}</h3>

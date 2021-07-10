@@ -214,8 +214,12 @@
   }
 }
 
+.offer-button_width {
+  width: 100%;
+}
+
 .offer-button {
-  max-width: 501px;
+ max-width: 501px;
   min-height: 72px;
   display: flex;
   flex-direction: row;
@@ -227,6 +231,12 @@
   padding-right: 50px;
   transition: all 0.3s ease-out;
   border: none;
+
+}
+
+.offer-link {
+  text-decoration: none;
+  max-width: 501px;
 }
 
 @media screen and (max-width: 1368px) {

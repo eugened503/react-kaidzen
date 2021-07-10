@@ -3,23 +3,14 @@ import "./Marquee.css";
 function Marquee() {
   return (
     <div className="marquee">
-      <div className="marquee-inner">
-        <span className="marquee-inner__span">
-          {/* <p className="marquee-inner__item">E-commerce</p> */}
-          <p className="marquee-inner__item">FinTech</p>
-          <p className="marquee-inner__item">EdTech</p>
-          <p className="marquee-inner__item">HoReca</p>
-          <p className="marquee-inner__item">eSport</p>
-        </span>
-        <span className="marquee-inner__span">
-       
-          <p className="marquee-inner__item">FinTech</p>
-          <p className="marquee-inner__item">EdTech</p>
-          <p className="marquee-inner__item">HoReca</p>
-          <p className="marquee-inner__item">eSport</p>
-        </span>
-      
-        
+      <div className="marquee-container">
+        <div className="marquee-inner__item marquee-inner__item2" />
+        <div className="marquee-inner__item marquee-inner__item3" />
+        <div className="marquee-inner__item marquee-inner__item4" />
+        <div className="marquee-inner__item marquee-inner__item5" />
+        <div className="marquee-inner__item marquee-inner__item6" />
+        <div className="marquee-inner__item marquee-inner__item7" />
+         <div className="marquee-inner__item marquee-inner__item8" /> 
       </div>
     </div>
   );

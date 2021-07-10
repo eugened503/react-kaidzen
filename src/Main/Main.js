@@ -8,6 +8,7 @@ import Application from "../Application/Application";
 function Main({ openContent, openModal,  backToTop }) {
   return (
     <main className="content">
+    
       <Lead />
       <VideoContainer />
       <Projects openContent={openContent}  backToTop={backToTop}/>

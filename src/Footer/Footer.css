@@ -71,3 +71,7 @@ line-height: 16px;
 .footer__text_margin {
   margin: 0 15px;
 }
+
+.footer__link {
+  text-decoration: none;
+}

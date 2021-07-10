@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
 import "./App.css";
 import Header from "./Header/Header";
 import Popup from "./Popup/Popup";
@@ -8,26 +8,44 @@ import ProjectsAll from "./ProjectsAll/ProjectsAll";
 import Footer from "./Footer/Footer";
 import Screen from "./Screen/Screen";
 import Main from "./Main/Main";
+import Page404 from "./Page404/Page404";
 
 function App() {
   const [projects, setProjects] = useState("all-projects");
   const [modalIsOpen, setIsOpen] = useState(false);
   const [modalSearchIsOpen, setIsModalSearchIsOpen] = useState(false);
+  const [scroll, setScroll] = useState(false);
+  //  const history = useHistory();
+  //  history.push("/");
+
+  useEffect(() => {
+    const body = document.querySelector("body");
+    body.style.overflow = scroll ? "hidden" : "auto";
+  }, [scroll]);
+
+  //  useEffect(() => {
+  //    setScroll(true);
+  //    setTimeout(() => setScroll(false), 5000);
+  //  }, []);
 
   function openModal() {
     setIsOpen(true);
+    setScroll(true);
   }
 
-  function openlSearchModal() {
+  function openSearchModal() {
     setIsModalSearchIsOpen(true);
+    setScroll(true);
   }
 
   function closeMyModal() {
     setIsOpen(false);
+    setScroll(false);
   }
 
   function closeSearchModal() {
     setIsModalSearchIsOpen(false);
+    setScroll(false);
   }
 
   function openContent() {
@@ -48,10 +66,10 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Screen />
+      {/* <Screen />    */}
       <div className="app">
         <div className="page">
-          <Header openlSearchModal={openlSearchModal} />
+          <Header openSearchModal={openSearchModal} />
           <Switch>
             <Route exact path="/">
               <Main
@@ -59,10 +77,15 @@ function App() {
                 openModal={openModal}
                 backToTop={backToTop}
               />
+
               <Footer backToTop={backToTop} />
             </Route>
             <Route exact path="/all-projects">
               <ProjectsAll projects={projects} />
+            </Route>
+
+            <Route exact path="/page-404">
+              <Page404 />
             </Route>
           </Switch>
           <Popup modalIsOpen={modalIsOpen} closeMyModal={closeMyModal} />

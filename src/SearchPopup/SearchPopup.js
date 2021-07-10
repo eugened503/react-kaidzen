@@ -78,19 +78,18 @@ function SearchPopup({ modalIsOpen, closeMyModal }) {
         <div className="form-container">
           <h3 className="form-container__title">Поиск по сайту</h3>
 
-          <div className="form-input">
-            <div className="form-typing">
+          <div className="form-input" onClick={() => setTyping(false)}>
+            <div className="form-typing" >
               {typing ? (
                 <ReactTyping
                   text={text}
-                  styleTitle={"form-container__type form-container__type_color"}
+                  styleTitle={"form-container__type"}
                   styleSubtitle={"form-container__subtitle"}
                 />
               ) : null}
             </div>
             <input
               className="form-container__input"
-              onClick={() => setTyping(false)}
             />
           </div>
           <p className="form-container__subtitle">Самое популярное</p>

@@ -123,7 +123,7 @@ function SwiperTeam() {
               </div>
             </div>
             <div className="team-container__item">
-              <img src={Valentin} alt="participant" />
+              <img className="team-container__image" src={Valentin} alt="participant" />
 
               <div className="team-container__info">
                 <h3 className="team-container__title">Валентин Воробьёв</h3>

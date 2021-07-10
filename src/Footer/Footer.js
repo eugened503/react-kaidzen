@@ -10,7 +10,7 @@ function Footer({backToTop}) {
         <img src={top} alt="top" />
         <p className="footer__text footer__text_margin">Вверх</p>
       </button>
-      <p className="footer__text">7 (800) 350-20-54</p>
+      <a className="footer__text footer__link" href="skype:+78003502054">7 (800) 350-20-54</a>
       <p className="footer__text">
         198302, г. Санкт-Петербург, пр-кт Маршала Жукова, д. 21 литера а, помещ.
         №205

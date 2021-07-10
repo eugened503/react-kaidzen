@@ -6,7 +6,7 @@ import searchMobile from "../images/search-mobile.svg";
 import Navigation from "../Navigation/Navigation";
 import { HashLink as Link } from "react-router-hash-link";
 
-function Header({ headerClass, openlSearchModal }) {
+function Header({ headerClass, openSearchModal }) {
   let prevScrollpos = window.pageYOffset;
 
   window.onscroll = function () {
@@ -30,13 +30,13 @@ function Header({ headerClass, openlSearchModal }) {
           className="header__search"
           src={search}
           alt="search"
-          onClick={openlSearchModal}
+          onClick={openSearchModal}
         />
         <img
           className="header__search-mobile"
           src={searchMobile}
           alt="search-mobile"
-          onClick={openlSearchModal}
+          onClick={openSearchModal}
         />
       </header>
     </div>

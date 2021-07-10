@@ -1,10 +1,8 @@
 import React from "react";
+import { HashLink as Link } from "react-router-hash-link";
 import "./Lead.css";
-//import Carousel from "../Carousel/Carousel";
-import Marquee2 from "../Marquee2/Marquee2";
-//import Typer from "../Typer/Typer";
+import Marquee from "../Marquee/Marquee";
 import check from "../images/check.png";
-//import data from "../data/data";
 import ReactTyping from "../ReactTyping/ReactTyping";
 
 function Lead() {
@@ -35,15 +33,16 @@ function Lead() {
         <p className="offer-message">
           Наши решения экономят клиентам сотни миллионов рублей
         </p>
-        <button className="offer-button">
+        <Link  className="offer-link" to="/#application">
+        <button className="offer-button offer-button_width">
           <img src={check} alt="check" />
           <p className="offer-button__title">
             Отправить заявку и перезвонить мне
           </p>
         </button>
+        </Link>
       </div>
-      {/* <Carousel items={data} active={0} />  */}
-      <Marquee2 />
+      <Marquee />
     </section>
   );
 }

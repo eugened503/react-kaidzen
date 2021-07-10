@@ -17,6 +17,12 @@
 }
 
 @font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu-Bold.woff') format('woff');
+    font-weight: 700;
+}
+
+@font-face {
     font-family: 'Rubik';
     src: url('../fonts/Rubik_400.woff') format('woff');
     font-weight: 400;
