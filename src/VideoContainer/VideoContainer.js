@@ -2,14 +2,14 @@ import React from "react";
 import Cursor from "../Cursor/Cursor";
 import DoubleMarquee from "../DoubleMarquee/DoubleMarquee";
 
-function VideoContainer() {
+function VideoContainer({scrollEvent}) {
 
 
 
   return (
     <section className="video">
       <DoubleMarquee />
-      <Cursor />
+      <Cursor scrollEvent={scrollEvent}/>
     </section>
   );
 }

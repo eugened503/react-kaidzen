@@ -4,38 +4,20 @@ import video from "../images/video.mp4";
 
 const Video = ({ handleCursorHidden, handleCursorBlock }) => {
   const videoRef = useRef(null);
-
-  //const [isVisible, setIsVisible] = useState(false);
+  //const [aaa, setaaa] = useState(0);
+  // const [cursorPosition, setCursorPosition] = useState(false);
+  // const videoWheel = (e) => {
+  //setaaa(e);
+  //   console.log(e)
+  //  if(e) {
+  //   handleCursorBlock();
+  //  }
+  // };
   // useEffect(() => {
-  //   if (!isVisible) {
-  //     handleCursorHidden();
-  //   } else {
+  //   if (aaa && cursorPosition) {
   //     handleCursorBlock();
   //   }
-  // }, [handleCursorBlock, handleCursorHidden, isVisible]);
-
-  // const callbackFunction = (entries) => {
-  //   const [entry] = entries;
-  //   setIsVisible(entry.isIntersecting);
-  // };
-
-  // useEffect(() => {
-  //   const currentRef = containerRef.current;
-  //   const observer = new IntersectionObserver(callbackFunction);
-  //   if (currentRef) observer.observe(currentRef);
-
-  //   return () => {
-  //     if (currentRef) observer.unobserve(currentRef);
-  //   };
-  // }, [containerRef]);
-
-
-const videoWheel = (e) => {
-if(e) {
-  handleCursorHidden()
-}
-}
-
+  // }, [aaa, cursorPosition, handleCursorBlock]);
 
   const toggleButon = () => {
     handleCursorBlock();
@@ -48,13 +30,31 @@ if(e) {
     }
   };
 
+  // console.log(cursorPosition)
+  // const onMouseMove = () => setCursorPosition(true);
+  // const videoScroll = (e) => {
+  //   console.log(e)
+  // }
+
+  const onMouseOver = () => {
+    handleCursorBlock();
+    //  setCursorPosition(true)
+  };
+
+  const onMouseOut = () => {
+    handleCursorHidden();
+    // setCursorPosition(false)
+  };
+
   return (
     <div
-      onMouseOver={handleCursorBlock}
-      onMouseOut={handleCursorHidden}
+      onMouseOver={onMouseOver}
+      onMouseOut={onMouseOut}
       className="container"
       onClick={toggleButon}
-      onWheel={(e) => videoWheel(e)}
+      onWheel={handleCursorBlock}
+      //onScroll={(e) => videoScroll(e)}
+      //  onMouseMove={onMouseOver}
     >
       <video
         ref={videoRef}
@@ -63,9 +63,13 @@ if(e) {
         autoPlay={true}
         loop={true}
         muted={true}
+        //  onMouseMove={onMouseOver}
+        //  onMouseMove={() => setCursorPosition(true)}
       >
         <source src={video} type="video/mp4" />
       </video>
+      {/* <div className="video__outline"   onMouseOver={onMouseOver}
+      onMouseOut={onMouseOut}/> */}
     </div>
   );
 };

@@ -4,6 +4,7 @@
   min-height: 720px;
   position: relative;
   padding-top: 25px;
+  /* scroll-snap-align: start; */
 }
 
 .team-info {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Header from "./Header/Header";
 import Popup from "./Popup/Popup";
@@ -15,8 +15,6 @@ function App() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [modalSearchIsOpen, setIsModalSearchIsOpen] = useState(false);
   const [scroll, setScroll] = useState(false);
-  //  const history = useHistory();
-  //  history.push("/");
 
   useEffect(() => {
     const body = document.querySelector("body");
@@ -64,6 +62,32 @@ function App() {
     }
   };
 
+  // const [offset, setOffset] = useState(0);
+
+  // useEffect(() => {
+  //   window.onscroll = () => {
+  //     setOffset(window.pageYOffset)
+  //   }
+  // }, [offset]);
+
+  // console.log(offset); 
+
+  const [scrollEvent, setScrollEvent] = useState(0);
+
+  //console.log(scrollEvent); 
+
+    useEffect(() => {
+        window.addEventListener("scroll", (e) => handleScroll(e));
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+
+    const handleScroll = (e) => {
+      setScrollEvent(e);
+    };
+
+   
+
   return (
     <BrowserRouter>
        <Screen />
@@ -76,8 +100,8 @@ function App() {
                 openContent={openContent}
                 openModal={openModal}
                 backToTop={backToTop}
+                scrollEvent={scrollEvent}
               />
-
               <Footer backToTop={backToTop} />
             </Route>
             <Route exact path="/all-projects">

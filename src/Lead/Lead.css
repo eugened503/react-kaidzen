@@ -5,6 +5,7 @@
   flex-direction: row;
   padding-left: 161px;
   padding-right: 161px;
+  /* scroll-snap-align: start; */
 }
 
 .offer-typing {

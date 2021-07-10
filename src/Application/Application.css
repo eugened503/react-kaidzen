@@ -5,6 +5,7 @@
   padding-top: 232px;
   padding-left: 161px;
   padding-right: 161px;
+  scroll-snap-align: start;
 }
 
 .application-info__block-lead {
