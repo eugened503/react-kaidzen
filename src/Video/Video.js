@@ -29,7 +29,16 @@ const Video = ({ handleCursorHidden, handleCursorBlock }) => {
   //   };
   // }, [containerRef]);
 
+
+const videoWheel = (e) => {
+if(e) {
+  handleCursorHidden()
+}
+}
+
+
   const toggleButon = () => {
+    handleCursorBlock();
     if (videoRef.current.muted) {
       videoRef.current.play();
       videoRef.current.muted = false;
@@ -45,6 +54,7 @@ const Video = ({ handleCursorHidden, handleCursorBlock }) => {
       onMouseOut={handleCursorHidden}
       className="container"
       onClick={toggleButon}
+      onWheel={(e) => videoWheel(e)}
     >
       <video
         ref={videoRef}

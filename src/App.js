@@ -23,10 +23,10 @@ function App() {
     body.style.overflow = scroll ? "hidden" : "auto";
   }, [scroll]);
 
-  //  useEffect(() => {
-  //    setScroll(true);
-  //    setTimeout(() => setScroll(false), 5000);
-  //  }, []);
+    useEffect(() => {
+      setScroll(true);
+      setTimeout(() => setScroll(false), 5000);
+    }, []);
 
   function openModal() {
     setIsOpen(true);
@@ -66,7 +66,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <Screen />    */}
+       <Screen />
       <div className="app">
         <div className="page">
           <Header openSearchModal={openSearchModal} />
