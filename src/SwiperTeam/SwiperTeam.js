@@ -44,7 +44,6 @@ function SwiperTeam() {
   //     image: Valentin,
     
   //   },
-   
   // ];
 
   const handleMouseMoveButtons = (e) => {

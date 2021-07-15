@@ -1,5 +1,4 @@
 import React from "react";
-import "./Main.css";
 import Lead from "../Lead/Lead";
 import VideoContainer from "../VideoContainer/VideoContainer";
 import Projects from "../Projects/Projects";

@@ -4,8 +4,6 @@ import DoubleMarquee from "../DoubleMarquee/DoubleMarquee";
 
 function VideoContainer({scrollEvent}) {
 
-
-
   return (
     <section className="video">
       <DoubleMarquee />

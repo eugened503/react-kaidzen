@@ -4,8 +4,6 @@
   flex-direction: column;
   overflow: hidden;
   position: relative;
-  /* scroll-snap-align: start; */
-
 }
 
 .container {
@@ -40,13 +38,3 @@
     height: 495px;
   }
 }
-
-/* .video__outline {
-  width: 90%;
-  height: 80%;
-  margin: auto;
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-  border: crimson solid 1px;
- 
-} */

@@ -76,10 +76,8 @@ function SearchPopup({ modalIsOpen, closeMyModal }) {
         </div>
 
         <div className="form-container">
-          <h3 className="form-container__title">Поиск по сайту</h3>
-
           <div className="form-input" onClick={() => setTyping(false)}>
-            <div className="form-typing" >
+            <div className="form-typing">
               {typing ? (
                 <ReactTyping
                   text={text}
@@ -88,9 +86,23 @@ function SearchPopup({ modalIsOpen, closeMyModal }) {
                 />
               ) : null}
             </div>
-            <input
-              className="form-container__input"
-            />
+
+            <div className="cool-link cool-link__width">
+              <div className="field">
+                <input
+                  className="field__input field__input_top"
+                  type="text"
+                  autoComplete="off"
+                  id="text"
+                />
+                <label
+                  className="field__label field__label_top"
+                  htmlFor="text"
+                  title="Поиск по сайту"
+                  data-title="Поиск по сайту"
+                ></label>
+              </div>
+            </div>
           </div>
           <p className="form-container__subtitle">Самое популярное</p>
           <div className="form-container__tags">

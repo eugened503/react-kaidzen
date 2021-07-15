@@ -27,24 +27,13 @@
       display: block;
     }
   
-    @media screen and (max-width: 1079px) {
+    @media screen and (max-width: 1320px) {
       .menu_margin {
         width: 100%;
       }
     }
 
-   /* @media screen and (max-width: 1181px) {
-    .menu_margin {
-      display: block;
-    }
-  }
-  
-  @media screen and (max-width: 1176px) {
-    .menu_margin {
-      margin: 0;
-    }
-  } 
-   */
+
   .menu-container {
     display: flex;
     flex-direction: row;
@@ -59,21 +48,15 @@
     min-height: 344px;
   }
   
-  @media screen and (max-width: 1079px) {
+  @media screen and (max-width: 1320px) {
     .menu-container_column {
       flex-direction: row;
       flex-wrap: wrap;
       padding: 0;
       width: 90%;
       min-height: 150px;
-    
-      /* justify-content: space-around; */
       justify-content: space-between;
-      /* margin-top: -110px; */
-
-      margin-top: 230px;
-      /* margin-bottom: -70px; */
-      
+      margin-top: 120px;
     }
   }
   
@@ -109,23 +92,14 @@
     color: #5d5d63;
   }
   
-  @media screen and (max-width: 1079px) {
+  @media screen and (max-width: 1320px) {
     .menu-container__link_size {
       font-family: Rubik;
       font-style: normal;
       font-weight: 300;
       font-size: 24px;
       line-height: 140%;
-    
+    margin-right: 10px;
     }
   }
 
- 
-
-
-  /* @media screen and (max-width: 1079px) {
-    .ReactModal__Content--after-open {
-   justify-content: flex-start !important;
-  
-    }
-  } */

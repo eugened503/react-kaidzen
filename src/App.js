@@ -63,19 +63,15 @@ function App() {
   };
 
   // const [offset, setOffset] = useState(0);
-
   // useEffect(() => {
   //   window.onscroll = () => {
   //     setOffset(window.pageYOffset)
   //   }
   // }, [offset]);
-
-  // console.log(offset); 
-
+  // console.log(offset);
+  
   const [scrollEvent, setScrollEvent] = useState(0);
-
-  //console.log(scrollEvent); 
-
+  
     useEffect(() => {
         window.addEventListener("scroll", (e) => handleScroll(e));
         return () => window.removeEventListener("scroll", handleScroll);
@@ -90,7 +86,7 @@ function App() {
 
   return (
     <BrowserRouter>
-       <Screen />
+        <Screen />
       <div className="app">
         <div className="page">
           <Header openSearchModal={openSearchModal} />

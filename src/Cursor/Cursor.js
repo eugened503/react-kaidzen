@@ -3,33 +3,20 @@ import Video from "../Video/Video";
 import "./Cursor.css";
 
 const Cursor = ({ scrollEvent }) => {
-  // const [xTrailing, setxTrailing] = useState("-50%");
-  // const [yTrailing, setyTrailing] = useState("80%");
-  // console.log('scrollEvent', scrollEvent)
   const [xTrailing, setxTrailing] = useState("-100%");
   const [yTrailing, setyTrailing] = useState("-100%");
   const [btn, setbtn] = useState("cursor-hidden");
-  //const [cursorPosition, setCursorPosition] = useState(false);
-  // console.log("cursorPosition",cursorPosition)
-
+ 
   const handleCursorHidden = () => {
-    //  console.log("не видно")
     setbtn("cursor-hidden");
     setxTrailing("-100%");
     setyTrailing("-100%");
-    // setTimeout(() => {
-    //   setxTrailing("-50%");
-    //   setyTrailing("80%");
-    // }, 0);
   };
 
   const handleCursorBlock = () => {
-    //   console.log("видно")
     setxTrailing("-100%");
     setyTrailing("-100%");
     setbtn("cursor-block");
-    //  setxTrailing("0");
-    //   setyTrailing("-100%");
   };
 
   const handleMouseMove = (e) => {
@@ -51,10 +38,6 @@ const Cursor = ({ scrollEvent }) => {
     <div
       className="cursor-container"
       onMouseMove={(e) => handleMouseMove(e)}
-      // onMouseOver={console.log("onMouseOver")}
-      // onMouseOut={console.log("onMouseOut")}
-      //onMouseEnter={console.log("onMouseEnter")}
-      //onMouseLeave={console.log("onMouseLeave")}
     >
       <div className="cursors-container">
         <div
@@ -68,7 +51,6 @@ const Cursor = ({ scrollEvent }) => {
       <Video
         handleCursorHidden={handleCursorHidden}
         handleCursorBlock={handleCursorBlock}
-        //  setCursorPosition={setCursorPosition}
       />
     </div>
   );

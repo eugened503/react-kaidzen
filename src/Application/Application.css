@@ -229,6 +229,8 @@
   transition: 300ms all;
 }
 
+
+
 @media screen and (max-width: 1181px) {
   .field__label::before {
     width: 80%;
@@ -268,8 +270,6 @@
 @media screen and (max-width: 1181px) {
   .field__input {
     height: 20px;
-
-    /* font-size: 12px; */
   }
 }
 
@@ -295,9 +295,30 @@
   text-overflow: ellipsis;
 }
 
+.field__input_top:valid + .field__label_top::before {
+  line-height: 20px;
+  font-size: 20px;
+  top: -35px;
+  padding: 0 6px;
+  left: 41%;
+  content: attr(data-title);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  z-index: 2;
+  padding: 0;
+  width: 100%;
+  color: #5d5d63;
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 140%;
+}
+
+
 .field__label:hover::before {
   cursor: pointer;
-  /* transform: scale(1.1); */
   filter: brightness(10);
 }
 
@@ -308,6 +329,35 @@
   color: white;
   padding: 0 6px;
   left: 9px;
+}
+
+
+.field__input_top:focus + .field__label_top::before {
+  line-height: 20px;
+  font-size: 22px;
+  top: -80px;
+  color: white;
+  padding: 0 6px;
+  left: 41%;
+}
+
+
+@media screen and (max-width: 1320px) {
+  .field__input_top:valid + .field__label_top::before {
+    margin-top: 0;
+    font-size: 16px;
+    line-height: 140%;
+    left: 31%;
+  }
+  .field__input_top:focus + .field__label_top::before {
+    font-size: 16px;
+    line-height: 140%;
+    top: -50px;
+    color: white;
+    padding: 0 6px;
+    left: 29%;
+  }
+
 }
 
 .cool-link {
@@ -333,6 +383,14 @@
     min-height: 10px;
     font-size: 20px;
   }
+}
+
+.cool-link__width{
+  width: 100%;
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
 }
 
 .cool-link::after {
