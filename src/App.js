@@ -1,30 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
-import Header from "./Header/Header";
-import Popup from "./Popup/Popup";
-import SearchPopup from "./SearchPopup/SearchPopup";
-import ProjectsAll from "./ProjectsAll/ProjectsAll";
-import Footer from "./Footer/Footer";
-import Screen from "./Screen/Screen";
-import Main from "./Main/Main";
-import Page404 from "./Page404/Page404";
+import Header from "./components/Header/Header";
+import Popup from "./components/Popup/Popup";
+import SearchPopup from "./components/SearchPopup/SearchPopup";
+import ProjectsAll from "./components/ProjectsAll/ProjectsAll";
+import Screen from "./components/Screen/Screen";
+import Main from "./components/Main/Main";
+import Page404 from "./components/Page404/Page404";
 
 function App() {
   const [projects, setProjects] = useState("all-projects");
   const [modalIsOpen, setIsOpen] = useState(false);
   const [modalSearchIsOpen, setIsModalSearchIsOpen] = useState(false);
   const [scroll, setScroll] = useState(false);
+  const [currentPage, setcurrentPage] = useState(null);
+  const [scrollEvent, setScrollEvent] = useState(0);
 
   useEffect(() => {
     const body = document.querySelector("body");
     body.style.overflow = scroll ? "hidden" : "auto";
   }, [scroll]);
 
-    useEffect(() => {
-      setScroll(true);
-      setTimeout(() => setScroll(false), 5000);
-    }, []);
+  useEffect(() => {
+    setScroll(true);
+    setTimeout(() => setScroll(false), 5000);
+  }, []);
 
   function openModal() {
     setIsOpen(true);
@@ -55,62 +56,53 @@ function App() {
     setProjects(content);
   }
 
-  const backToTop = () => {
-    if (window.pageYOffset > 0) {
-      window.scrollBy(0, -80);
-      setTimeout(backToTop, 0);
-    }
+  useEffect(() => {
+    window.addEventListener("scroll", (e) => handleScroll(e));
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleScroll = (e) => {
+    setScrollEvent(e);
   };
 
-  // const [offset, setOffset] = useState(0);
-  // useEffect(() => {
-  //   window.onscroll = () => {
-  //     setOffset(window.pageYOffset)
-  //   }
-  // }, [offset]);
-  // console.log(offset);
-  
-  const [scrollEvent, setScrollEvent] = useState(0);
-  
-    useEffect(() => {
-        window.addEventListener("scroll", (e) => handleScroll(e));
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
-
-    const handleScroll = (e) => {
-      setScrollEvent(e);
-    };
-
-   
+  const handlePageChange = (number) => {
+    setcurrentPage(number);
+  };
 
   return (
     <BrowserRouter>
-        <Screen />
+      <Screen />
       <div className="app">
         <div className="page">
-          <Header openSearchModal={openSearchModal} />
+          <Header
+            openSearchModal={openSearchModal}
+            handlePageChange={handlePageChange}
+          />
           <Switch>
             <Route exact path="/">
               <Main
                 openContent={openContent}
                 openModal={openModal}
-                backToTop={backToTop}
                 scrollEvent={scrollEvent}
+                currentPage={currentPage}
+                handlePageChange={handlePageChange}
               />
-              <Footer backToTop={backToTop} />
             </Route>
             <Route exact path="/all-projects">
-              <ProjectsAll projects={projects} />
+              <ProjectsAll
+                projects={projects}
+                handlePageChange={handlePageChange}
+              />
             </Route>
 
             <Route exact path="/page-404">
-              <Page404 />
+              <Page404 handlePageChange={handlePageChange} />
             </Route>
           </Switch>
           <Popup modalIsOpen={modalIsOpen} closeMyModal={closeMyModal} />
           <SearchPopup
             modalIsOpen={modalSearchIsOpen}
+            handlePageChange={handlePageChange}
             closeMyModal={closeSearchModal}
           />
         </div>
